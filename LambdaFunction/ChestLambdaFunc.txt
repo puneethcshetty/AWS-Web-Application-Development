@@ -1,0 +1,28 @@
+import json
+import boto3
+import numpy as np
+
+def lambda_handler(event, context):
+    
+    s3 = boto3.client("s3")
+    dynamoDB = boto3.resource("dynamodb")
+    
+    json_file = s3.get_object(Bucket = "cwad-deploy", Key = "2020-04-28_Kate_test_Raw.json")
+    
+    json_content = json_file["Body"].read().decode('utf-8')
+    
+    json_data = json.loads(json_content)
+    data = json_data['samples']
+    chest = np.array([d['c'] for d in data])
+    
+    table = dynamoDB.Table('CWAD_data')
+    item = {
+        'Customer_id': 0,
+        'Chest_data': json.dumps(chest.tolist())
+    }
+    table.put_item(Item = item)
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps(chest.tolist())
+    }
