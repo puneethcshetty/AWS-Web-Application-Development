@@ -11,4 +11,4 @@ def test(event, context):
     resp = my_json_data(json_file)
     print(resp)
     assert resp=={'statusCode': 200, 'body': '[3273, 3270, 3270, 3518, 3519]'}
-    return  True
+    return  "Test is successfully run!!"
