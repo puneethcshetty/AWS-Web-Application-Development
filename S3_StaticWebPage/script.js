@@ -1,6 +1,7 @@
 "use strict";
 let main = function () {
-	for(var i = 0; i < chest.length; i++) {
+	//create x axis according to length of chest data
+	for(var i = 0; i < chest.length; i=i+1) {
 		x_axis.push(i);
 	}
 	console.log(x_axis);
@@ -11,8 +12,11 @@ let main = function () {
 // For drawing the lines
 var chest = []
 var x_axis = []
+
+//SPI url which links lambda function
 var API_URL = 'https://tdv1x27ai2.execute-api.us-east-2.amazonaws.com/default';
 	
+//use ajax call to trigger API_URL
 function getData() {
     return $.ajax({
         url: API_URL,
@@ -32,6 +36,7 @@ function refreshData(thenFn) {
     Promise.all([getData()]).then(thenFn);
 }
 
+//build line chart
 function buildChart(){
 	var ctx = document.getElementById("myChart");
 	var myChart = new Chart(ctx, {
@@ -43,6 +48,8 @@ function buildChart(){
 			data: chest,
 			label: "Chest",
 			borderColor: "#3e95cd",
+			borderWidth: 0.25,
+			pointRadius: 0.25,
 			fill: false
 		  }
 		]
