@@ -12,7 +12,7 @@
 	use Aws\S3\Exception\S3Exception;
 
 	// AWS Info
-	$bucketName = 'example-phpendtoend';
+	$bucketName = 'cwad-bucket-one';
 	$IAM_KEY = 'AKIAVZ7WJM2TPJ5DFN2R';
 	$IAM_SECRET = 'PEOEEX+9U9uMTWUoc7kmRuKj2SBQFHjxn+4rKG5Y';
 
