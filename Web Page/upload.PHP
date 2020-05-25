@@ -1,24 +1,20 @@
 <?php
-	// This file demonstrates file upload to an S3 bucket. This is for using file upload via a
-	// file compared to just having the link. If you are doing it via link, refer to this:
-	// 	//
-	// You must setup your bucket to have the proper permissions. To learn how to do this
-	// refer to:
-		
-	// I will be using composer to install the needed AWS packages.
+	// This file demonstrates file upload to an S3 bucket. This is for using file upload via a file compared to just having the link.
+	// we must setup your bucket to have the proper permissions. 
+	// I have used composer to install the needed AWS packages.
 	require './vendor/autoload.php';
 	
 	use Aws\S3\S3Client;
 	use Aws\S3\Exception\S3Exception;
 
 	// AWS Info
-	$bucketName = 'cwad-bucket-one';
-	$IAM_KEY = 'AKIAVZ7WJM2TPJ5DFN2R';
-	$IAM_SECRET = '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';
+	$bucketName = 'cwad-bucket-one'; // bucket name
+	$IAM_KEY = 'AKIAVZ7WJM2TPJ5DFN2R'; // IAM key of user
+	$IAM_SECRET = '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'; // IAM secret key of user
 
 	// Connect to AWS
 	try {
-		// You may need to change the region. It will say in the URL when the bucket is open
+		// we may need to change the region. It will say in the URL when the bucket is open
 		// and on creation.
 		$s3 = S3Client::factory(
 			array(
@@ -37,7 +33,7 @@
 	}
 	
 	
-	// For this, I would generate a unqiue random string for the key name. But you can do whatever.
+	// For this, I would generate a unqiue random string for the key name.
 	$keyName = '' . basename($_FILES["fileToUpload"]['name']);
 	$pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/';
 
@@ -62,8 +58,6 @@
 	}
 
 
-	// Now that you have it working, I recommend adding some checks on the files.
-	// Example: Max size, allowed file types, etc.
 ?>
 <html>
 <body>
