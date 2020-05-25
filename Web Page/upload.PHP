@@ -1,6 +1,6 @@
 <?php
 	// This file demonstrates file upload to an S3 bucket. This is for using file upload via a file compared to just having the link.
-	// we must setup your bucket to have the proper permissions. 
+	// we must setup our bucket to have the proper permissions. 
 	// I have used composer to install the needed AWS packages.
 	require './vendor/autoload.php';
 	
