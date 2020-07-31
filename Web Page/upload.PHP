@@ -8,9 +8,9 @@
 	use Aws\S3\Exception\S3Exception;
 
 	// AWS Info
-	$bucketName = 'cwad-bucket-one'; // bucket name
-	$IAM_KEY = 'AKIAVZ7WJM2TPJ5DFN2R'; // IAM key of user
-	$IAM_SECRET = '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'; // IAM secret key of user
+	$bucketName = 'BUCKET_NAME'; // bucket name
+	$IAM_KEY = 'KEY'; // IAM key of user
+	$IAM_SECRET = 'SECRET_KEY'; // IAM secret key of user
 
 	// Connect to AWS
 	try {
