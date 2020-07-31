@@ -32,6 +32,6 @@ def lambda_handler(event, context):
 	s3 = boto3.client("s3")
     
 	#get json file using file name
-	json_file = s3.get_object(Bucket = "BuUCKET_NAME", Key = "FILE_NAME")
+	json_file = s3.get_object(Bucket = "BUCKET_NAME", Key = "FILE_NAME")
 	
 	return my_json_data(json_file)
